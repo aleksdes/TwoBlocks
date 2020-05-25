@@ -1,0 +1,34 @@
+@import "untils/variables";
+@import "services-cards";
+@import "mixins/media";
+
+.services {
+    margin-top: 5.625rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    .services__title  {
+        margin-bottom: 3.75rem;
+    }
+    .services__box-cards {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    @include respond-to (large-screens)  {
+        margin-top: 4rem;
+        .services__title  {
+            margin-bottom: 3rem;
+        }
+    }
+    @include respond-to (medium-screens) {
+        margin-top: 2rem;
+        .services__title  {
+            margin-bottom: 2rem;
+        }
+    }
+}
+

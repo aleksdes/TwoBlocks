@@ -1,0 +1,114 @@
+@import "untils/variables";
+@import "mixins/media";
+
+.technology-team {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    margin-bottom: 6.3rem;
+    .technology-team__img {
+        width: 50%;
+        img {
+            width: 90%;
+        }
+    }
+    .technology-team__text {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 20px 0 20px;
+        .text-technology__title {
+            font-size: 1.25rem;
+            max-width: 350px;
+            position: relative;
+            &::after {
+                content: '';
+                width: 30px;
+                height: 3px;
+                display: flex;
+                background-color: $textBlue;
+                margin-top: 10px;
+            }
+            .technology__miniImg-1 {
+                position: absolute;
+                width: 34px;
+                opacity: 30%;
+                top: -150px;
+                left: -150px;
+                @include respond-to (wide-screens) {
+                    top: -100px;
+                    left: -120px;
+                }
+                @include respond-to (large-screens) {
+                    top: -50px;
+                    left: -80px;
+                }
+                @include respond-to (medium-screens) {
+                    top: -70px;
+                    left: 80px;
+                }
+            }
+        }
+        .text-technology__contayner {
+            margin-top: 3.75rem;
+            max-width: 400px;
+            position: relative;
+            .text-technology__box-img-1 {
+                width: 100%;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                grid-row-gap: 35px;
+                justify-items: start;
+                align-items: center;
+            }
+            .text-technology__box-img-2 {
+                width: 100%;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                justify-items: start;
+                align-items: center;
+                margin-top: 35px;
+            }
+            .technology__miniImg-2 {
+                position: absolute;
+                width: 74px;
+                opacity: 30%;
+                bottom: -180px;
+                left: -300px;
+                @include respond-to (wide-screens) {
+                    bottom: -80px;
+                    left: -200px;
+                }
+                @include respond-to (large-screens) {
+                    bottom: -80px;
+                    left: -100px;
+                }
+            }
+            .technology__miniImg-3 {
+                position: absolute;
+                width: 40px;
+                opacity: 45%;
+                bottom: -100px;
+                right: -30px;
+                @include respond-to (wide-screens) {
+                    right: 0px;
+                }
+            }
+        }
+    }
+    @include respond-to (large-screens) {
+        .technology-team__img {
+            display: none;
+        }
+        .technology-team__text {
+            width: 100%;
+            padding: 0 20px 0 20px;
+            .text-technology__title {
+                font-size: 0.875rem;
+                max-width: 400px;
+            }
+        }
+    }
+}

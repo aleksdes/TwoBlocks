@@ -1,0 +1,165 @@
+@import "untils/variables";
+@import "mixins/media";
+
+.project {
+    margin-top: 7rem;
+    .project__title {
+        text-align: center;
+    }
+    .project__box-slider {
+        margin-top: 3.75rem;
+        .single-slide {
+            width: 100%;
+            .project__slide {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                &:focus {
+                    outline: none !important;
+                }
+                .box-text {
+                    width: 40%;
+                    padding: 30px;
+                    padding-left: 70px;
+                    display: flex;
+                    flex-direction: column;
+                    .title {
+                        margin-bottom: 1rem;
+                        h4 {color: $textBlue !important;}
+                        &::after {
+                            content: '';
+                            display: flex;
+                            margin-top: 8px;
+                            width: 25px;
+                            height: 2px;
+                            background-color: $textBlue;
+                        }
+                    }
+                }
+                .box-img {
+                    width: 60%;
+                    position: relative;
+                    img:first-child {
+                        width: 90%;
+                        cursor: pointer;
+                    }
+                   
+                    .blob-slider {
+                        position: absolute;
+                        bottom: -5%;
+                        right: 5%;
+                        z-index: -1;
+                    }
+                    .romb-slider {
+                        position: absolute;
+                        top: -5%;
+                        left: -5%;
+                        z-index: -1;
+                    }
+                }
+            }
+        }
+    }
+    @include respond-to (wide-screens)  {
+        margin-top: 4rem;
+        .project__box-slider {
+            margin-top: 0.3rem;
+            .project__slide {
+                display: flex !important;
+                flex-direction: column !important;
+                .box-text {
+                    width: 100% !important;
+                    padding: 0 50px 0 50px !important;
+                    margin-bottom: 30px;
+                    display: flex;
+                    flex-direction: column;
+                }
+                .box-img {
+                    width: 85% !important;
+                    display: flex;
+                    justify-content: center;
+                    img:first-child {
+                        width: 100%;
+                    }
+                    .romb-slider {
+                        top: -5%;
+                        left: 0% !important;
+                    }
+                }
+            }
+        }
+    }
+}
+.project__img_bottom {
+    width: 100%;
+    margin-top: 1.1rem;
+    text-align: center;
+    padding-right: 40%;
+    img {
+        opacity: 50%;
+        width: 50px;
+    }
+    @include respond-to (medium-screens) {
+        margin-top: 0;
+        img {
+            width: 30px;
+        }
+    }
+}
+
+#magnify {
+    display: none;
+    position: fixed;
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    z-index: 9999;
+    img {
+        width: 100%;
+        @include respond-to (large-screens) {
+            width: 100%;
+        }
+    }
+}
+  /* затемняющий фон */
+#overlay {
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    background: rgb(36, 36, 36);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.5;
+    z-index: 9990;
+}
+/* кнопка закрытия */
+#close-popup {
+    width: 30px;
+    height: 30px;
+    background: #FFFFFF;
+    border: 1px solid #AFAFAF;
+    border-radius: 15px;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    &:hover {
+        animation: rota 4s infinite normal;
+        -webkit-animation-iteration-count: 1;
+        animation-iteration-count: 1;
+    }
+    i {
+        width: 30px;
+        height: 30px;
+        background: url(https://codernote.ru/files/cross.png) no-repeat center center;
+        background-size: 16px 16px;
+        display: block;
+    }
+}
+ 
+@keyframes rota {
+    25% { transform: rotate(360deg); }
+}

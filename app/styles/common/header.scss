@@ -1,0 +1,228 @@
+@import "untils/variables";
+
+.header {
+    width: 100%;
+    height: 4.375rem;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    .header__container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        .menu-nav {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            .menu__box {
+                display: flex;
+                flex-direction: row;
+                margin: 0;
+                padding: 0;
+                li {
+                    margin-right: 1.5rem;
+                    &:last-child { margin-right: 0;}
+                    a {
+                        color: $textWhite;
+                        font-weight: 500;
+                        position: relative;
+                        &:hover:after {
+                            content: "";
+                            display: flex;
+                            position: absolute;
+                            width: 1.56rem;
+                            height: 2px;
+                            background-color: $textWhite;
+                        }
+                    }
+                }
+            }
+        }
+        .button-cover {
+            position: relative;
+            display: flex;
+            margin-left: 50px;
+            width: 74px;
+            @include respond-to (medium-screens) {
+                margin-left: 0;
+            }
+            .knobs, .layer {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
+        }
+        .button-menu {
+            position: absolute;
+            top: 50%;
+            width: 74px;
+            height: 36px;
+            margin: -20px auto 0 auto;
+            overflow: hidden;
+        }
+        .button-menu.r, .button-menu.r .layer {
+            border-radius: 100px;
+        }
+        .button-menu.b2 {
+            border-radius: 2px;
+        }
+        .checkbox {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            opacity: 0;
+            cursor: pointer;
+            z-index: 3;
+        }
+        .knobs {
+            z-index: 2;
+        }
+        .layer {
+            width: 100%;
+            background-color: #ebf7fc;
+            transition: 0.3s ease all;
+            z-index: 1;
+        }
+        #button-lang {
+            overflow: visible;
+            .knobs {
+                perspective: 70px;
+            }
+        }
+        #button-lang .knobs:before, #button-lang .knobs:after, #button-lang .knobs span {
+            position: absolute;
+            top: 4px;
+            border-radius: 2px;
+        }
+        #button-lang .knobs:before, #button-lang .knobs:after {
+            width: 20px;
+            height: 10px;
+            color: #4e4e4e;
+            font-size: 10px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1;
+            padding: 9px 4px;
+        }
+        #button-lang .knobs:before {
+            content: 'RU';
+            left: 4px;
+        }
+        #button-lang .knobs:after {
+            content: 'EN';
+            right: 4px;
+        }
+        #button-lang .knobs span {
+            right: 4px;
+            width: 33px;
+            height: 28px;
+            background-color: $cardHover;
+            transform: rotateY(0);
+            transform-origin: 0% 50%;
+            transition: 0.6s ease all;
+            z-index: 1;
+        }
+        #button-lang .checkbox:checked + .knobs span {
+            transform: rotateY(-180deg);
+            background-color: #B60F8E;
+        }
+        #button-lang .checkbox:checked ~ .layer {
+            background-color: #ebf7fc;
+        }
+        .menu__hamburger {
+            display: flex;
+            align-items: center;
+            #menu__toggle {
+                opacity: 0;
+                margin-left: 30px;
+            }
+            #menu__toggle:checked ~ .menu__btn > span {
+            transform: rotate(45deg);
+            }
+            #menu__toggle:checked ~ .menu__btn > span::before {
+            margin-top: 0;
+            transform: rotate(0);
+            background-color: $textBlue;
+            }
+            #menu__toggle:checked ~ .menu__btn > span::after {
+            margin-top: 0;
+            transform: rotate(90deg);
+            background-color: $textBlue;
+            }
+            #menu__toggle:checked ~ .menu__hamburger-box {
+            visibility: visible;
+            right: 0;
+            top:0;
+            }
+            .menu__btn {
+                display: flex;
+                align-items: center; 
+                position: relative;
+                display: flex;
+                width: 29px;
+                height: 30px;
+                cursor: pointer;
+                z-index: 100;
+                margin: 0;
+                > span,
+                span::before,
+                span::after {
+                    display: flex;
+                    position: absolute;
+                    width: 100%;
+                    height: 2px;
+                    background-color: $textWhite;
+                }
+                > span::before {
+                    content: '';
+                    width: 100%;
+                    margin-top: -8px;
+                }
+                > span::after {
+                    content: '';
+                    margin-top: 8px;
+                    width: 100%;
+                }
+            }
+            .menu__hamburger-box {
+                z-index: 10;
+                display: block;
+                position: fixed;
+                visibility: hidden;
+                top: 0;
+                width: 300px;
+                height: 100%;
+                margin: 0;
+                padding: 80px 0;
+                list-style: none;
+                text-align: center;
+                background-color: #ECEFF1;
+                box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+                .menu__item {
+                    z-index: 10;
+                    display: block;
+                    padding: 12px 24px;
+                    color: $textBlue;;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    text-decoration: none;
+                    &:hover {
+                        background-color: #CFD8DC;
+                    }
+                }
+            }
+        }
+    }
+}
+.bk-header {
+    background-color: $bgPrimarily;
+}

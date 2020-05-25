@@ -1,0 +1,10 @@
+@import "untils/variables";
+
+@mixin boxShadow($box) {
+    @if $box == cardProduct {
+        box-shadow: 10px 10px 20px rgba(27, 34, 106, 0.5);
+    }
+    @else if $box == cardResident {
+        box-shadow: 0px 0px 15px #4E20A0;
+    }
+}

@@ -1,0 +1,31 @@
+@import "untils/variables";
+
+@mixin button($width: 205px, $height: 48px, $font: 16px, $color1: $btnPrimarily, $color2: $btnSecondarily, $boxShadow: rgba(110, 232, 253, 0.8), $param: false) {
+    width: $width;
+    height: $height;
+    background-color: $color1;
+    display: flex;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    font-size: $font;
+    color: $bgPrimarily;
+    font-weight: 500;
+    text-transform: uppercase;
+    border: none;
+    transition: 0.5s ease-in-out;
+    outline: none;
+
+    @if $param == true {
+        color: $textWhite;
+        background: linear-gradient(256deg, #F848DC -26.09%, rgba(255, 255, 255, 0) 108.33%), #2F17E6;
+    }
+    &:hover {
+        box-shadow: 0px 6px 15px -2px $boxShadow;
+        background-color: $color2;
+        transition: 0.5s ease-in-out;
+    }
+    &:active {
+        box-shadow: none;
+    }
+}
