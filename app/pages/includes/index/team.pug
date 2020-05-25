@@ -1,0 +1,121 @@
+-
+    const paramsTeam = [
+        {   
+            id: "resident-1",
+            img: "img/index/resident/resident-1.png", 
+            title: "Рогальский Иван", 
+            subTitle: "product manager",
+            link: "/",
+            description: "Специалист в области управления проектами, отвечает за планирование, подготовку и исполнение всех проектов",
+            gitHub: "/",
+            telegram: "/",
+            in: "/",
+        },
+        {   
+            id: "resident-2",
+            img: "img/index/resident/resident-2.png", 
+            title: "Волков Александр", 
+            subTitle: "Node.js, PHP",
+            link: "/",
+            description: "Разработчик, специализирующийся на разработке высоконагруженных систем на языке Node.js",
+            gitHub: "/",
+            telegram: "/",
+            in: "/",
+        },
+        {   
+            id: "resident-3",
+            img: "img/index/resident/resident-2.png", 
+            title: "Гаврилов Кирилл", 
+            subTitle: "Node.js, JavaScript, React, Vue, Angular",
+            link: "/",
+            description: "Разработчик, специалист по построению web-app архитектуры, специализируется на vue, react, angular",
+            gitHub: "/",
+            telegram: "/",
+            in: "/",
+        },
+        {   
+            id: "resident-4",
+            img: "img/index/resident/resident-2.png", 
+            title: "Серов Артём", 
+            subTitle: "1C",
+            link: "/",
+            description: "Специалист по разработки и внедрению ERP систем на платформе 1С",
+            gitHub: "/",
+            telegram: "/",
+            in: "/",
+        },
+        {   
+            id: "resident-5",
+            img: "img/index/resident/resident-2.png", 
+            title: "Волков Александр", 
+            subTitle: "Node.js, PHP",
+            link: "/",
+            description: "Специалист в области управления проектами, отвечает за планирование, подготовку и исполнение всех проектов",
+            gitHub: "/",
+            telegram: "/",
+            in: "/",
+        },
+        {   
+            id: "resident-6",
+            img: "img/index/resident/resident-2.png", 
+            title: "Михайлов Владимир", 
+            subTitle: "Node.js",
+            link: "/",
+            description: "Специалист по построению гибких решений на основе открытого ПО",
+            gitHub: "/",
+            telegram: "/",
+            in: "/",
+        },
+        {   
+            id: "resident-7",
+            img: "img/index/resident/resident-2.png", 
+            title: "Перегудов Дмитрий", 
+            subTitle: "Python",
+            link: "/",
+            description: "Специалист по обслуживанию блокчейн сети",
+            gitHub: "/",
+            telegram: "/",
+            in: "/",
+        },
+        {   
+            id: "resident-8",
+            img: "img/index/resident/resident-2.png", 
+            title: "Новосельцев Михаил", 
+            subTitle: "Python",
+            link: "/",
+            description: "Специалист по обслуживанию блокчейн сети",
+            gitHub: "/",
+            telegram: "/",
+            in: "/",
+        },
+    ]
+
+
+block team
+    .team.container
+        .team__title 
+            h3 Нашa команда
+        .row.team__box-cards
+             for i in paramsTeam 
+                .col-12.col-sm-6.col-lg-3.box__card-resident
+                    .card-resident(id= i.id)
+                        .card-resident__img
+                            img(src= i.img, alt= i.title)
+                            .img-resident__hover
+                                .img-resident__description= i.description
+                                a(href=i.link) смотреть профиль
+                        .card-resident__title= i.title
+                        .card-resident__subtitle= i.subTitle
+                        .card-resident__link
+                            a(href=i.gitHub)
+                                img(src="img/index/resident/card-resident__link/git-hub.svg", alt="gitHub")
+                            a(href=i.telegram)
+                                img(src="img/index/resident/card-resident__link/telegram.svg", alt="telegram")
+                            a(href=i.in)
+                                img(src="img/index/resident/card-resident__link/in.svg", alt="in")
+        .team__meeting.meeting-team
+            .meeting-team__title Познакомьтесь с опытной командой настоящих профессиналов в сфере Blockchein технологий
+            button.meeting-team__button Знакомиться
+            img(class="meeting-team__img-1" src="img/index/about-us-1.png" alt="About-us")
+            img(class="meeting-team__img-2" src="img/index/about-us-2.png" alt="About-us")
+        

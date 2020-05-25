@@ -1,0 +1,44 @@
+-
+    const paramsSlide = [
+        {   
+            id: "Slide-2",
+            img: "img/index/slide-2.png", 
+            title: "Title", 
+            subTitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit in semper at vitae amet consequat, etiam egestas duis. Cras euismod pellentesque id amet gravida orci posuere montes, orci. Elementum quam turpis egestas suscipit vitae consectetur in faucibus amet. Lacinia vel purus vehicula a suscipit.",
+            link: "/",
+        },
+        {
+            id: "Slide-3",
+            img: "img/index/slide-3.png", 
+            title: "Title", 
+            subTitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit in semper at vitae amet consequat, etiam egestas duis. Cras euismod pellentesque id amet gravida orci posuere montes, orci. Elementum quam turpis egestas suscipit vitae consectetur in faucibus amet. Lacinia vel purus vehicula a suscipit.",
+            link: "/",
+        },
+        {   
+            id: "Slide-4",
+            img: "img/index/slide-4.png", 
+            title: "Title", 
+            subTitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit in semper at vitae amet consequat, etiam egestas duis. Cras euismod pellentesque id amet gravida orci posuere montes, orci. Elementum quam turpis egestas suscipit vitae consectetur in faucibus amet. Lacinia vel purus vehicula a suscipit.",
+            link: "/",
+        },
+        {   
+            id: "Slide-1",
+            img: "img/index/slide-1.png", 
+            title: "Title", 
+            subTitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit in semper at vitae amet consequat, etiam egestas duis. Cras euismod pellentesque id amet gravida orci posuere montes, orci. Elementum quam turpis egestas suscipit vitae consectetur in faucibus amet. Lacinia vel purus vehicula a suscipit.",
+            link: "/",
+        }
+    ]
+
+mixin project-slider
+    .single-slide
+        for i in paramsSlide
+            .project__slide(id=i.id)
+                .box-text
+                    .title
+                        h4= i.title
+                    .subtitle= i.subTitle
+                .box-img
+                    img.minimized(class= i.id)(src= i.img, alt= i.title)
+                    img(class="blob-slider")(src="img/index/blob-slider.png")
+                    img(class="romb-slider")(src="img/index/romb-slider.png")
