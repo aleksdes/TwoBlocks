@@ -4,7 +4,8 @@
   "description": "Blockchain development team website",
   "main": "index.js",
   "scripts": {
-   
+    "start": "gulp",
+    "build": "gulp build"
   },
   "author": "https://github.com/aleksdes",
   "license": "ISC",

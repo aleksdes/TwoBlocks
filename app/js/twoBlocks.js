@@ -1,7 +1,6 @@
 // menu-navigation
 function backgroundMenu() {
     const pathname = window.location.pathname;
-    console.log("param",pathname);
     const menu = document.getElementById("header")
 
     if ( pathname === '' || 
