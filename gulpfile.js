@@ -83,16 +83,17 @@ function watch() {
         },
         port:3001
     });
-    gulp.watch('app/styles/**/*.scss', { ignoreInitial: false }, style);
-    gulp.watch('app/js/*.js', { ignoreInitial: false }, jsx);
-    gulp.watch('app/slick/*.scss', { ignoreInitial: false }, styleSlick);
-    gulp.watch('app/slick/*.js', { ignoreInitial: false }, jsxSlick);
-    gulp.watch('app/pages/**/*.pug', { ignoreInitial: false }, pugs);
-    gulp.watch('app/img', { ignoreInitial: false }, img);
+    gulp.watch('app/styles/**/*.scss', style);
+    gulp.watch('app/js/*.js', jsx);
+    gulp.watch('app/slick/*.scss', styleSlick);
+    gulp.watch('app/slick/*.js', jsxSlick);
+    gulp.watch('app/pages/**/*.pug', pugs);
+    gulp.watch('app/img', img);
     gulp.watch('dist/*.html').on('change', browserSync.reload);
     gulp.watch('app/js/**/*.js').on('change', browserSync.reload);
 }
 
+exports.build = series(style, jsx, styleSlick, jsxSlick, pugs, img);
 exports.default = pugs;
 exports.default = style;
 exports.default = watch;
