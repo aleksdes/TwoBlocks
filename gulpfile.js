@@ -6,6 +6,12 @@ const autoprefixer = require('gulp-autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
 const pug = require('gulp-pug');
 const image = require('gulp-image');
+const babel = require('gulp-babel');
+const uglify = require('gulp-uglify');
+const rename = require('gulp-rename');
+const imagemin = require('gulp-imagemin');
+const cache = require('gulp-cache');
+const {series,parallel} = require('gulp');
 
 function style() {
     return gulp.src(['app/styles/*.scss'])
@@ -34,12 +40,18 @@ function styleSlick() {
 }
 
 function jsx() {
-    return gulp.src(['app/js/**/*.js']) 
+    return gulp.src(['app/js/**/*.js'])
+        .pipe(babel())
+        .pipe(gulp.dest('dist/js'))
+        .pipe(uglify())
+        .pipe(rename({ extname: '.min.js' }))
         .pipe(gulp.dest('dist/js'))
         .pipe(browserSync.stream());
 }
 function jsxSlick() {
-    return gulp.src(['app/slick/*.js']) 
+    return gulp.src(['app/slick/*.js'])
+        .pipe(babel())
+        .pipe(uglify())
         .pipe(gulp.dest('dist/slick'))
         .pipe(browserSync.stream());
 }
@@ -57,6 +69,9 @@ function img() {
     .pipe(image({
         pretty:true
     }))
+    .pipe(cache(imagemin({
+        interlaced: true
+      })))
     .pipe(gulp.dest('dist/img'));
 }
 
@@ -68,12 +83,12 @@ function watch() {
         },
         port:3001
     });
-    gulp.watch('app/styles/**/*.scss', style);
-    gulp.watch('app/js/*.js', jsx);
-    gulp.watch('app/slick/*.scss', styleSlick);
-    gulp.watch('app/slick/*.js', jsxSlick);
-    gulp.watch('app/pages/**/*.pug', pugs);
-    gulp.watch('app/img', img);
+    gulp.watch('app/styles/**/*.scss', { ignoreInitial: false }, style);
+    gulp.watch('app/js/*.js', { ignoreInitial: false }, jsx);
+    gulp.watch('app/slick/*.scss', { ignoreInitial: false }, styleSlick);
+    gulp.watch('app/slick/*.js', { ignoreInitial: false }, jsxSlick);
+    gulp.watch('app/pages/**/*.pug', { ignoreInitial: false }, pugs);
+    gulp.watch('app/img', { ignoreInitial: false }, img);
     gulp.watch('dist/*.html').on('change', browserSync.reload);
     gulp.watch('app/js/**/*.js').on('change', browserSync.reload);
 }
