@@ -2,4 +2,5 @@
 
 После клонирования репозитория установить все зависимости:<br>
 -npm install <br>
--npm start
+-npm build <br>
+-npm run start
