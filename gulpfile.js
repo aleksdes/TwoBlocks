@@ -95,5 +95,5 @@ function watch() {
 
 exports.build = series(style, jsx, styleSlick, jsxSlick, pugs, img);
 exports.default = pugs;
-exports.default = style;
+exports.default = style; 
 exports.default = watch;
