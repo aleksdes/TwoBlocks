@@ -5,11 +5,9 @@ const browserSync = require('browser-sync').create();
 const autoprefixer = require('gulp-autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
 const pug = require('gulp-pug');
-const image = require('gulp-image');
 const babel = require('gulp-babel');
 const uglify = require('gulp-uglify');
 const rename = require('gulp-rename');
-const imagemin = require('gulp-imagemin');
 const cache = require('gulp-cache');
 const {series,parallel} = require('gulp');
 
@@ -66,12 +64,6 @@ function pugs() {
 
 function img() {
     return gulp.src('app/img/*/**')
-    .pipe(image({
-        pretty:true
-    }))
-    .pipe(cache(imagemin({
-        interlaced: true
-      })))
     .pipe(gulp.dest('dist/img'));
 }
 
